@@ -81,3 +81,10 @@ class Data:
                 if type(modalites) == list:
                     self.data[self.data[col].isin(modalites)]
 
+
+    def GetModelOptions(self):
+        return self.options
+    
+
+    def GetData(self):
+        return self.data

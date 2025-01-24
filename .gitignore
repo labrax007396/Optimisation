@@ -1,3 +1,4 @@
 laminage/data/*.csv
 modelisation/donnees/test/*.csv
 *.pkl
+*.csv
