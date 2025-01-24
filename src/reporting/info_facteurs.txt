@@ -1,0 +1,7 @@
+Les coefficients sont les valeurs des coefficients de la régression linéaire.
+La pvalue indique la probabilité que le coefficient soit nul (donc que le facteur soit non significatif). 
+Un seuil > 0.05 (5%) est la valeur généralement considérée pour estimer qu'un facteur est non significatif.
+Dans le cas où un des facteurs est de type catégoriel (décrit par une chaine de caractères), une transformation
+est préalablement effectuée pour encoder ce facteur avec des 0/1. Si le facteur contient N modalités, 
+N nouveaux facteurs sont créés. Si, par exemple, le facteur 'TYPE_PRODUIT' peut prendre les valeurs 
+'P1', 'P2' ou 'P3, les facteurs suivants sont créés: TYPE_PRODUIT [P1], TYPE_PRODUIT [P2], TYPE_PRODUIT [P3]
