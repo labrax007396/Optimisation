@@ -128,6 +128,11 @@ class GenericModel:
         
 
 
+    def ExportToPkl(self,model_pkl_file:str):
+        import pickle
+        pickle.dump(self.ModelSklearn, open(model_pkl_file, 'wb')) 
+
+
     def ConvertModelToOnnx(self):
 
         ''' Conversion du modèle au format onnx '''

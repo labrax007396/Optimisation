@@ -30,7 +30,7 @@ class Data:
             self.options = commentjson.load(file)
 
 
-    def ReadCSVData(self):
+    def ReadData(self):
 
         """
             Lecture du fichier de données
@@ -44,20 +44,28 @@ class Data:
         index_name    = self.options['dataformat']['index_name']
         col_to_import = [index_name] + [var_modelisee] + facteurs
 
-        self.data = pd.read_csv(self.data_file_location,
-                              sep     = self.options['dataformat']['sep'],
-                              decimal = self.options['dataformat']['decimal'],
-                              usecols = col_to_import
-                              )
-        
-        if self.options['dataformat']['index_type'] == "date":
-            date_format = self.options['dataformat']['date_format']
-            self.data[index_name] = self.data[index_name].apply(lambda x: datetime.strptime(str(x), date_format))
-            self.data.set_index(index_name,inplace=True)
+        if self.options['dataformat']['type'] == '.csv':
+
+            self.data = pd.read_csv(self.data_file_location,
+                                sep     = self.options['dataformat']['sep'],
+                                decimal = self.options['dataformat']['decimal'],
+                                usecols = col_to_import
+                                )
+            
+            if self.options['dataformat']['index_type'] == "date":
+                date_format = self.options['dataformat']['date_format']
+                self.data[index_name] = self.data[index_name].apply(lambda x: datetime.strptime(str(x), date_format))
+                self.data.set_index(index_name,inplace=True)
+                debut = self.options['debut']
+                fin   = self.options['fin']
+                self.data = self.data[(self.data.index>=debut) & (self.data.index<=fin)]
+
+        elif self.options['dataformat']['type'] == '.pkl':
+            self.data = pd.read_pickle(self.data_file_location)
+            self.data = self.data[[var_modelisee] + facteurs]
             debut = self.options['debut']
             fin   = self.options['fin']
             self.data = self.data[(self.data.index>=debut) & (self.data.index<=fin)]
-
 
         for col in self.options['f_configs'].keys():
             type_c = self.options['f_configs'][col]['type']

@@ -1,0 +1,45 @@
+{
+  "model_type": "RegressionLgbm",
+  "used_part_of_data_for_validation": true,
+  "debut":"01/01/2024 09:45:00",
+  "fin":"31/12/2024 09:45:00",
+
+  "y_config": {
+    "name": "pf6",
+    "vmin":0.0,
+    "vmax":5.0
+  },
+  "f_configs": {
+
+    "larg": {
+      "vmin":0.0,
+      "vmax":1800.0,
+      "type":"num"
+    },
+    "esort_5": {
+      "vmin":1.0,
+      "vmax":35.0,
+      "type":"num"
+    },
+    "esort_6": {
+      "vmin":1.0,
+      "vmax":35.0,
+      "type":"num"
+    },
+    "metal": {
+      "modalites":"",
+      "type":"disc"
+    }
+  },
+
+  "dataformat": {
+    "type":".pkl",
+    "sep":";",
+    "decimal":",",
+    "index_name":"Date",
+    "index_type":"date",
+    "date_format":"%d/%m/%Y %H:%M:%S"
+  }
+
+
+}

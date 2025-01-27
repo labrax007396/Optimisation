@@ -1,5 +1,5 @@
 {
-  "model_type": "RegressionLineaire",
+  "model_type": "RegressionLgbm",
   "used_part_of_data_for_validation": true,
   "debut":"01/01/2019 09:45:00",
   "fin":"31/01/2019 09:45:00",
@@ -33,6 +33,7 @@
   },
 
   "dataformat": {
+    "type":".pkl",
     "sep":";",
     "decimal":",",
     "index_name":"Date",
